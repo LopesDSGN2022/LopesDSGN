@@ -1,0 +1,115 @@
+/* ===== RESET ===== */
+    body {
+      margin: 0;
+      background: #000;
+    }
+
+    .footer-divider {
+        border: none;
+        height: 2px;
+        background: #7B61FF;
+        width: 100%;
+        margin: 32px 0 24px;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      height: 72px;
+      background: #111;
+      border-bottom: 1px solid #7b61ff46;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: #fff !important;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      margin: 0 10px;
+    }
+
+    .nav-link:hover{
+      border-bottom:2px solid #7B61FF;
+      color:#ffffffb2 !important;
+    }
+
+    .btn-menu {
+      border: 1px solid #fff;
+      color: #fff;
+      border-radius: 30px;
+      padding: 6px 16px;
+    }
+
+    .btn-menu:hover{
+        background-color: #7B61FF;
+        color: #ffffff;
+    }
+
+    .btn-cta {
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-weight: 500;
+    }
+
+/* ===== WHATSAPP ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5d;
+      color: #fff;
+    }
+
+    .footer-custom {
+    background-color: #0c0c0c;
+    border-top: 1px solid #7b61ff52;
+    }
+    footer a:hover {
+    text-decoration: underline;
+    }
+
+    footer i {
+    transition: color 0.2s ease;
+    }
+
+    footer i:hover {
+    color: #7B61FF
+    }
+
+    .ft-border:hover{
+        border-bottom: 1px solid #7B61FF;
+    }
+
+    .f-color{
+        color: #c9beff;
+    }
+
+        .btn-strategy {
+      background: #7B61FF;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 30px;
+      font-weight: 500;
+    }
+
+    .btn-strategy:hover {
+      background: #5641c0;
+      color: #fff;
+    }

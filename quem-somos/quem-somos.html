@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lopes DSGN | Quem Somos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome (WhatsApp) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- LINK CSS -->
+  <link rel="stylesheet" href="../menu-footer.css">
+
+  <style>
+    .text-t {
+        padding: 0px 20%;
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+
+    .client-logo {
+        max-width: 140px;
+        width: 100%;
+        opacity: 0.85;
+        transition: all 0.3s ease;
+    }
+
+    .client-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    .service-item {
+    height: 100%;
+    padding: 30px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+    }
+
+    /* Hover elegante */
+    .service-item:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-6px);
+    background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    @media (max-width: 768px) {
+    .service-item {
+        padding: 24px 16px;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">LOPESDSGN</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/quem-somos">Quem Somos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+        </ul>
+
+        <div class="d-flex gap-2">
+            <a href="/criativos" class="btn btn-menu btn-cta">Criativos</a>
+            <a href="/projetos" class="btn btn-menu btn-cta">Identidade Visual</a>
+        </div>
+
+        </div>
+    </div>
+    </nav>
+
+    <!-- ================= O QUE FAZEMOS ================= -->
+    <section class="services-section py-5">
+    <div class="container text-white text-center">
+
+        <h2 class="fw-bold mb-3">O Que Fazemos</h2>
+        <p class="text-t" style="margin-bottom: 3rem;">
+        A Lopes DSGN é um estúdio especializado em branding estratégico, focado na criação e no fortalecimento de marcas que buscam diferenciação e crescimento. Atuamos no desenvolvimento de identidade visual, posicionamento de marca, diretrizes visuais e tom de voz, garantindo uma comunicação clara e consistente.
+        </p>
+
+        <div class="row g-4 mt-1">
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="service-item">
+            <img src="images/img/idv.webp" class="img-fluid mb-4" style="max-width: 25%;">
+            <h5>Identidade Visual</h5>
+            <p>IDV, Manual da marca, Tipografia, Aplicações, Pattern, Branding, Papelarias, etc.</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="service-item">
+            <img src="images/img/artes.webp" class="img-fluid mb-4" style="max-width: 25%;">
+            <h5>Criação de Artes</h5>
+            <p>Materiais Institucionais, Folders, Flyers, Posts, Carroséis, Stories, Anúncios, Motion, etc.</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="service-item">
+            <img src="images/img/web.webp" class="img-fluid mb-4" style="max-width: 25%;">
+            <h5>Sites</h5>
+            <p>Websites, Lojas Virtuais, Layout de Blogs, Landing Page, E-mail Marketing, Artes, Banners, etc.</p>
+            
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="service-item">
+            <img src="images/img/impressos.webp" class="img-fluid mb-4" style="max-width: 25%;">
+            <h5>Impressos</h5>
+            <p>Convites, Folder, Cartões, Embalagens, Crachá, Panfletos, Cardápios, Papel Timbrado, etc.</p>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <hr class="footer-divider">
+
+    <!-- ================= NOSSOS CLIENTES ================= -->
+   <section class="clients-section py-5">
+    <div class="container text-white text-center">
+
+        <h2 class="fw-bold mb-3">Clientes</h2>
+
+        <p class="text-t mb-5">
+        Alguns clientes que tivemos a oportunidade de trabalhar em projetos!
+        </p>
+
+        <!-- Container dos logos -->
+        <div id="clients-logos" class="row justify-content-center align-items-center g-4"></div>
+
+    </div>
+    </section>
+
+    <!-- ===== WHATSAPP MOVEL ===== -->
+    <a href="https://wa.me/5511989024678"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-custom pt-5 pb-4 text-white">
+    <div class="container">
+
+        <div class="row">
+
+        <!-- ENDEREÇOS -->
+        <div class="col-md-3 mb-4">
+            <h6 class="fw-bold f-color">Local</h6>
+            <p class="mb-2">Brasil<br>São Paulo - Capital</p>
+        </div>
+
+        <!-- CONTATOS -->
+        <div class="col-md-3 mb-4">
+            <h6 class="fw-bold f-color">Contato</h6>
+            <p class="mb-1">WhatsApp: <a href="https://wa.me/5511989024678" class="text-white ft-border" style="text-decoration: none;">Faça seu Orçamento</a></p>
+            <p class="mb-3">Linktree: <a href="https://linktr.ee/lopes_dsgn" class="text-white ft-border" style="text-decoration: none;">Lopes_Dsgn</a></p>
+        </div>
+        <div class="col-md-3 mb-4">
+            <h6 class="fw-bold f-color">Navegação</h6>
+            <ul class="list-unstyled">
+            <li><a href="/" class="text-white ft-border" style="text-decoration: none;">Home</a></li>
+            <li><a href="/servicos" class="text-white ft-border" style="text-decoration: none;">Serviços</a></li>
+            </ul>
+        </div>
+
+        <!-- REDES SOCIAIS -->
+        <div class="col-md-3 mb-4 text-md-end">
+            <h6 class="fw-bold f-color">Siga-nos</h6>
+            <div class="d-flex gap-3 justify-content-md-end">
+            <a href="https://www.instagram.com/lopes_dsgn" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.behance.net/lopes_dsgn" class="text-white fs-4"><i class="fab fa-behance"></i></a>
+            <a href="https://linktr.ee/lopes_dsgn" class="text-white fs-4"><i class="fab fa-chrome"></i></a>
+            <a href="https://wa.me/5511989024678" class="text-white fs-4"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="row">
+        <div class="col text-center text-secondary small">
+            © 2025 LOPESDSGN – Todos os direitos reservados
+        </div>
+        </div>
+
+    </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- LINK JS -->
+    <!-- <script src="style.js"></script> -->
+
+    <script>
+    const logos = [
+        { src: 'images/img-logo/agillog.webp', alt: 'Agillog' },
+        { src: 'images/img-logo/amarena.webp', alt: 'Amarena' },
+        { src: 'images/img-logo/barnno.webp', alt: 'Barnno' },
+        { src: 'images/img-logo/best.webp', alt: 'Best Shape Health Food' },
+        { src: 'images/img-logo/comunidade.webp', alt: 'Comunidade' },
+        { src: 'images/img-logo/lalolita.webp', alt: 'Lalolita' },
+        { src: 'images/img-logo/m-car.webp', alt: 'M-Car Automóveis' },
+        { src: 'images/img-logo/mimos.webp', alt: 'MMimos' },
+        { src: 'images/img-logo/molupa-lingerie.webp', alt: 'Molupa Lingerie' },
+        { src: 'images/img-logo/nina.webp', alt: 'Nina Distribuidora EK' },
+        { src: 'images/img-logo/quality-master.webp', alt: 'Quality Master' },
+        { src: 'images/img-logo/raro.webp', alt: 'RARO' },
+        { src: 'images/img-logo/viviane-nutri.webp', alt: 'Viviane Boniolo Nutricionista' },
+        { src: 'images/img-logo/veritas.webp', alt: 'Veritas Joias' },
+        { src: 'images/img-logo/cafeconffe.webp', alt: 'Cafeteria Café Conffé' },
+        { src: 'images/img-logo/plage-gesso.webp', alt: 'Plage Gesso 3D' },
+        { src: 'images/img-logo/elevora-digital.webp', alt: 'Elévora Digital' },
+        { src: 'images/img-logo/gamblers.webp', alt: 'Gamblers Basquete' },
+        { src: 'images/img-logo/d2volt.webp', alt: 'D2VOLT - Soluções Elétricas' },
+        { src: 'images/img-logo/vici.webp', alt: 'Vici Precatórios' },
+        { src: 'images/img-logo/alexshoes.webp', alt: 'Alex Shoes' },
+        { src: 'images/img-logo/devgringa.webp', alt: 'Dev na Gringa' },
+        { src: 'images/img-logo/crianca-do-meu-jeito.webp', alt: 'Crinça do Meu Jeito' },     
+        { src: 'images/img-logo/taina-pelizon.webp', alt: 'Taina Pelizon' },
+        { src: 'images/img-logo/natane-menezes.webp', alt: 'Natane Menezes Nutricionista' },
+        { src: 'images/img-logo/ministerio-viver.webp', alt: 'Ministério Viver' }
+    ];
+
+    const container = document.getElementById('clients-logos');
+
+    logos.forEach(logo => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4 col-lg-2';
+
+        col.innerHTML = `
+        <img src="${logo.src}" class="client-logo" alt="${logo.alt}">
+        `;
+
+        container.appendChild(col);
+    });
+    </script>
+
+</body>
+</html>
