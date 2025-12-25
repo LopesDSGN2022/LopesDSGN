@@ -1,0 +1,24 @@
+[[redirects]]
+  from = "/quem-somos"
+  to = "/quem-somos/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/servicos"
+  to = "/servicos/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/produtos"
+  to = "/produtos/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/projetos"
+  to = "/projetos/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
