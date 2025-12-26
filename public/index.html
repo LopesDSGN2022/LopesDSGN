@@ -21,7 +21,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
 
-    <a class="navbar-brand" href="/home">LOPESDSGN</a>
+    <a class="navbar-brand" href="/">LOPESDSGN</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
     <div class="collapse navbar-collapse" id="menu">
 
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/quem-somos">Quem Somos</a></li>
         <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
         <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
@@ -616,7 +616,7 @@
       <div class="col-md-3 mb-4">
         <h6 class="fw-bold f-color">Navegação</h6>
         <ul class="list-unstyled">
-          <li><a href="/home" class="text-white ft-border" style="text-decoration: none;">Home</a></li>
+          <li><a href="/" class="text-white ft-border" style="text-decoration: none;">Home</a></li>
           <li><a href="/servicos" class="text-white ft-border" style="text-decoration: none;">Serviços</a></li>
         </ul>
       </div>
@@ -657,6 +657,35 @@
   ]
 </script>
 <script src="style.js"></script>
+
+<!-- Script para ajustar links de produtos localmente -->
+<script>
+  // Espera a página carregar completamente
+  window.addEventListener('DOMContentLoaded', function() {
+    // Detecta se está rodando localmente
+    const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.port !== '';
+
+    if (isLocal) {
+      console.log('Ambiente local detectado - ajustando links de produtos');
+
+      // Ajusta todos os links de produtos para usar query params
+      const productLinks = document.querySelectorAll('a[href^="/produtos/"]');
+      console.log('Links encontrados:', productLinks.length);
+
+      productLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href !== '/produtos' && !href.includes('index.html')) {
+          const productId = href.split('/').pop();
+          const newHref = `/produtos/index.html?id=${productId}`;
+          link.setAttribute('href', newHref);
+          console.log(`Link modificado: ${href} -> ${newHref}`);
+        }
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

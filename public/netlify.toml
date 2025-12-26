@@ -1,3 +1,9 @@
+# Rotas específicas devem vir ANTES da rota catch-all
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
 [[redirects]]
   from = "/quem-somos"
   to = "/quem-somos/index.html"
@@ -14,10 +20,26 @@
   status = 200
 
 [[redirects]]
+  from = "/produtos/*"
+  to = "/produtos/index.html"
+  status = 200
+
+[[redirects]]
   from = "/projetos"
   to = "/projetos/index.html"
   status = 200
 
+[[redirects]]
+  from = "/contato"
+  to = "/contato/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/marcas"
+  to = "/marcas/index.html"
+  status = 200
+
+# Rota catch-all deve ser a ÚLTIMA
 [[redirects]]
   from = "/*"
   to = "/index.html"

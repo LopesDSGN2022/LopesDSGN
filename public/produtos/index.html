@@ -126,9 +126,32 @@
 
 <!-- Script JS -->
 <script>
+// 🔹 Redireciona automaticamente se estiver rodando localmente
+(function() {
+    const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.port !== '';
+
+    if (isLocal) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hasQueryParam = urlParams.has('id');
+
+        if (!hasQueryParam) {
+            const path = window.location.pathname;
+            const slug = path.split("/").filter(Boolean).pop();
+
+            // Se tem um slug válido na URL (não é "produtos" nem "index.html")
+            if (slug && slug !== "produtos" && slug !== "index.html") {
+                console.log('Redirecionando para formato com query param:', slug);
+                window.location.href = `/produtos/index.html?id=${slug}`;
+            }
+        }
+    }
+})();
+
 const produtos = [
     {
-        id: pacote-basico-idv,
+        id: "pacote-basico-idv",
         title: "Pacote Básico - Identidade Visual",
         price: "R$ 129,99",
         installments: "De: R$ 199,99 Por:",
@@ -149,7 +172,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20básico%20identidade%20visual"
     },
     {
-        id: pacote-medio-idv,
+        id: "pacote-medio-idv",
         title: "Pacote Médio - Identidade Visual",
         price: "R$ 209,99",
         installments: "De: R$ 279,99 Por:",
@@ -170,7 +193,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20médio%20identidade%20visual"
     },
     {
-        id: pacote-completo-idv,
+        id: "pacote-completo-idv",
         title: "Pacote Completo - Identidade Visual",
         price: "R$ 299,99",
         installments: "De: R$ 359,99 Por:",
@@ -193,7 +216,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20completo%20identidade%20visual"
     },
     {
-        id: pacote-premium-idv,
+        id: "pacote-premium-idv",
         title: "Pacote Premium - Identidade Visual",
         price: "R$ 799,99",
         installments: "De: R$ 899,99 Por:",
@@ -219,7 +242,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20premium%20identidade%20visual"
     },
         {
-        id: pacote-quatro-artes,
+        id: "pacote-quatro-artes",
         title: "Pacote 4 Artes",
         price: "R$ 120,00",
         installments: "De: R$ 160,00 Por:",
@@ -238,7 +261,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%204%20artes"
     },
     {
-        id: pacote-doze-artes,
+        id: "pacote-doze-artes",
         title: "Pacote 12 Artes",
         price: "R$ 300,00",
         installments: "De: R$ 480,00 Por:",
@@ -258,7 +281,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%2012%20artes"
     },
     {
-        id: papelaria-completo,
+        id: "papelaria-completo",
         title: "Papelaria Completo",
         price: "R$ 199,00",
         installments: "De: R$ 269,00 Por:",
@@ -276,7 +299,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20Papelaria%20Completo"
     },
     {
-        id: estruturacao-instagram,
+        id: "estruturacao-instagram",
         title: "Estruturação Feed - Instagram",
         price: "R$ 109,00",
         installments: "De: R$ 139,00 Por:",
@@ -298,7 +321,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20Estruturação%20Feed%20Instagram"
     },
     {
-        id: artes-mensais,
+        id: "artes-mensais",
         title: "Artes Mensais - Midias Sociais",
         price: "R$ 499,00",
         installments: "De: R$ 599,00 Por:",
@@ -318,7 +341,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Artes%20Mensais"
     },
     {
-        id: tratamento-de-foto,
+        id: "tratamento-de-foto",
         title: "Tratamento de Fotos",
         price: "R$ 25,00",
         installments: "A partir de:",
@@ -340,7 +363,7 @@ const produtos = [
     },
 
     {
-        id: motion,
+        id: "motion",
         title: "Motion - Edição de Vídeo",
         price: "Orçamento",
         installments: "Solicite",
@@ -357,7 +380,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Edição%20de%20Vídeos"
     },
     {
-        id: site-institucional,
+        id: "site-institucional",
         title: "Site Institucional",
         price: "Orçamento",
         installments: "Solicite",
@@ -374,7 +397,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Sites"
     },
     {
-        id: arte-unico,
+        id: "arte-unico",
         title: "1 Arte - Único",
         price: "R$ 35,00",
         installments: "De: R$ 40,00 Por:",
@@ -390,7 +413,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20arte%20única"
     },
     {
-        id: arte-carrossel,
+        id: "arte-carrossel",
         title: "1 Arte - Carrossel",
         price: "R$ 45,00",
         installments: "De: R$ 50,00 Por:",
@@ -407,7 +430,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Arte%20carrossel"
     },
     {
-        id: papelaria-premium,
+        id: "papelaria-premium",
         title: "Papelaria Premium",
         price: "R$ 299,00",
         installments: "De: R$ 399,00 Por:",
@@ -425,7 +448,7 @@ const produtos = [
         buyLink: "https://wa.me/5511994233573?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Papelaria%20Premium"
     },
     {
-        id: estruturacao-feed-completa,
+        id: "estruturacao-feed-completa",
         title: "Estruturação Feed - Completa",
         price: "R$ 159,00",
         installments: "De: R$ 209,00 Por:",
@@ -451,21 +474,25 @@ const produtos = [
 // Função para carregar produto baseado no SLUG da URL
 function loadProduct() {
 
-    // 🔹 Pega o caminho da URL
-    // Ex: /produtos/pacote-medio-idv
-    const path = window.location.pathname;
+    // 🔹 Tenta pegar o ID via query parameter (?id=pacote-basico-idv)
+    const urlParams = new URLSearchParams(window.location.search);
+    let slug = urlParams.get('id');
 
-    // 🔹 Extrai o último segmento da URL
-    const slug = path.split("/").filter(Boolean).pop();
+    // 🔹 Se não tiver query param, pega do caminho da URL
+    if (!slug) {
+        // Ex: /produtos/pacote-medio-idv
+        const path = window.location.pathname;
+        slug = path.split("/").filter(Boolean).pop();
+    }
 
-    // 🔹 Se estiver apenas em /produtos, não tenta carregar produto
-    if (!slug || slug === "produtos") {
+    // 🔹 Se estiver apenas em /produtos ou index.html, não tenta carregar produto
+    if (!slug || slug === "produtos" || slug === "index.html") {
         console.warn("Nenhum produto selecionado");
         return;
     }
 
-    // 🔹 Procura o produto pelo slug
-    const product = produtos.find(p => p.slug === slug);
+    // 🔹 Procura o produto pelo id
+    const product = produtos.find(p => p.id === slug);
 
     // 🚨 TRATAMENTO DE ERRO (produto inexistente)
     if (!product) {

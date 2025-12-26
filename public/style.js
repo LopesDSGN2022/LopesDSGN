@@ -158,7 +158,7 @@ if(container){
     .forEach(projeto => {
       container.innerHTML += `
         <div class="image">
-          <a href="telas2.html?projeto=${projeto.slug}">
+          <a href="/telas2.html?projeto=${projeto.slug}">
             <img src="${projeto.capa}" class="banner-projeto" alt="${projeto.nome}">
             <div class="contenttt">
               <h1>${projeto.nome}</h1>
