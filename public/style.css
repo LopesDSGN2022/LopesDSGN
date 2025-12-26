@@ -480,16 +480,25 @@
       }
 
       .product-card h6{
-        /* padding: 0px 22px 0px 22px; */
-        font-size: 18px;
+        padding: 0px 22px 0px 22px;
+        font-size: 15px;
+      }
+
+      .padding-extra{
+        padding: 0px 27px 0px 27px;
+      }
+
+      .category {
+          font-size: 8px;
       }
 
       .descrp {
           font-size: 0.6rem;
           margin-bottom: 8px;
+          padding: 0px 10px;
       }
 
-      .old-price {
+      .old-price .old-price-2 {
           font-size: 0.65rem;
       }
 

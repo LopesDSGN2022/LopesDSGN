@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="productTitle">Lopes DSGN |</title>
+<productTitle id="productproductTitle">Lopes DSGN |</productTitle>
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +13,34 @@
 
   <!-- LINK CSS -->
   <link rel="stylesheet" href="../menu-footer.css">
+
+  <style>
+    .main-image{
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+    .main-image{
+        width: 80%;
+    }
+
+    .mobile-container{  
+        display: flex;
+        justify-content: center;
+    }
+
+    .mobile-info{
+        text-align: center;
+    }
+
+    .mobile-details{
+        padding: 10px 20px;
+    }
+    
+    }
+
+
+  </style>
 </head>
 <body>
         <!-- ===== NAVBAR ===== -->
@@ -45,20 +73,20 @@
     </nav>
 
     <div class="container py-5">
-        <div class="row">
+        <div class="row mobile-container">
             <!-- Coluna Imagens -->
             <div class="col-md-6">
                 <img id="mainImage" src="" class="main-image" alt="Produto">
                 <div id="thumbnails" class="d-flex flex-wrap"></div>
             </div>
             <!-- Coluna Informações -->
-            <div class="col-md-6 text-white">
+            <div class="col-md-6 text-white mobile-info">
                 <h2 id="productTitle"></h2>
                 <p id="installments" style="margin-bottom: 0px; text-decoration: line-through;"></p>
                 <p id="price" class="fs-3 fw-bold mb-1"></p>
                 <a href="/contato" class="btn btn-strategy mt-3" id="btnBuy">Vamos lá</a>
-                <hr>
-                <div id="productDetails"></div>
+                <hr class="footer-divider">
+                <div id="productDetails" class="mobile-details"></div>
             </div>
         </div>
     </div>
@@ -152,7 +180,7 @@
 const produtos = [
     {
         id: "pacote-basico-idv",
-        title: "Pacote Básico - Identidade Visual",
+        productTitle: "Pacote Básico - Identidade Visual",
         price: "R$ 129,99",
         installments: "De: R$ 199,99 Por:",
         mainImage: "../images/card-1/pct-idv-1.webp",
@@ -173,7 +201,7 @@ const produtos = [
     },
     {
         id: "pacote-medio-idv",
-        title: "Pacote Médio - Identidade Visual",
+        productTitle: "Pacote Médio - Identidade Visual",
         price: "R$ 209,99",
         installments: "De: R$ 279,99 Por:",
         mainImage: "../images/card-1/pct-idv-2.webp",
@@ -194,7 +222,7 @@ const produtos = [
     },
     {
         id: "pacote-completo-idv",
-        title: "Pacote Completo - Identidade Visual",
+        productTitle: "Pacote Completo - Identidade Visual",
         price: "R$ 299,99",
         installments: "De: R$ 359,99 Por:",
         mainImage: "../images/card-1/pct-idv-3.webp",
@@ -217,7 +245,7 @@ const produtos = [
     },
     {
         id: "pacote-premium-idv",
-        title: "Pacote Premium - Identidade Visual",
+        productTitle: "Pacote Premium - Identidade Visual",
         price: "R$ 799,99",
         installments: "De: R$ 899,99 Por:",
         mainImage: "../images/card-1/pct-idv-4.webp",
@@ -243,7 +271,7 @@ const produtos = [
     },
         {
         id: "pacote-quatro-artes",
-        title: "Pacote 4 Artes",
+        productTitle: "Pacote 4 Artes",
         price: "R$ 120,00",
         installments: "De: R$ 160,00 Por:",
         mainImage: "../images/card-1/pct-criativos-1.webp",
@@ -262,7 +290,7 @@ const produtos = [
     },
     {
         id: "pacote-doze-artes",
-        title: "Pacote 12 Artes",
+        productTitle: "Pacote 12 Artes",
         price: "R$ 300,00",
         installments: "De: R$ 480,00 Por:",
         mainImage: "../images/card-1/pct-criativos-2.webp",
@@ -282,7 +310,7 @@ const produtos = [
     },
     {
         id: "papelaria-completo",
-        title: "Papelaria Completo",
+        productTitle: "Papelaria Completo",
         price: "R$ 199,00",
         installments: "De: R$ 269,00 Por:",
         mainImage: "../images/card-1/pct-papelaria.webp",
@@ -300,7 +328,7 @@ const produtos = [
     },
     {
         id: "estruturacao-instagram",
-        title: "Estruturação Feed - Instagram",
+        productTitle: "Estruturação Feed - Instagram",
         price: "R$ 109,00",
         installments: "De: R$ 139,00 Por:",
         mainImage: "../images/card-1/pct-instagram.webp",
@@ -322,7 +350,7 @@ const produtos = [
     },
     {
         id: "artes-mensais",
-        title: "Artes Mensais - Midias Sociais",
+        productTitle: "Artes Mensais - Midias Sociais",
         price: "R$ 499,00",
         installments: "De: R$ 599,00 Por:",
         mainImage: "../images/card-2/art-msl-1.webp",
@@ -342,7 +370,7 @@ const produtos = [
     },
     {
         id: "tratamento-de-foto",
-        title: "Tratamento de Fotos",
+        productTitle: "Tratamento de Fotos",
         price: "R$ 25,00",
         installments: "A partir de:",
         mainImage: "../images/card-2/ttm-foto-1.mp4",
@@ -364,7 +392,7 @@ const produtos = [
 
     {
         id: "motion",
-        title: "Motion - Edição de Vídeo",
+        productTitle: "Motion - Edição de Vídeo",
         price: "Orçamento",
         installments: "Solicite",
         mainImage: "../images/card-2/motion-1.mp4",
@@ -381,7 +409,7 @@ const produtos = [
     },
     {
         id: "site-institucional",
-        title: "Site Institucional",
+        productTitle: "Site Institucional",
         price: "Orçamento",
         installments: "Solicite",
         mainImage: "../images/card-2/site-ins-1.webp",
@@ -398,7 +426,7 @@ const produtos = [
     },
     {
         id: "arte-unico",
-        title: "1 Arte - Único",
+        productTitle: "1 Arte - Único",
         price: "R$ 35,00",
         installments: "De: R$ 40,00 Por:",
         mainImage: "../images/card-2/art-un-1.webp",
@@ -414,7 +442,7 @@ const produtos = [
     },
     {
         id: "arte-carrossel",
-        title: "1 Arte - Carrossel",
+        productTitle: "1 Arte - Carrossel",
         price: "R$ 45,00",
         installments: "De: R$ 50,00 Por:",
         mainImage: "../images/card-2/art-crs-1.webp",
@@ -431,7 +459,7 @@ const produtos = [
     },
     {
         id: "papelaria-premium",
-        title: "Papelaria Premium",
+        productTitle: "Papelaria Premium",
         price: "R$ 299,00",
         installments: "De: R$ 399,00 Por:",
         mainImage: "../images/card-2/pap-cmp-1.webp",
@@ -449,7 +477,7 @@ const produtos = [
     },
     {
         id: "estruturacao-feed-completa",
-        title: "Estruturação Feed - Completa",
+        productTitle: "Estruturação Feed - Completa",
         price: "R$ 159,00",
         installments: "De: R$ 209,00 Por:",
         mainImage: "../images/card-1/est-feed-1.webp",
@@ -503,7 +531,7 @@ function loadProduct() {
 
     // ✅ A partir daqui, o produto é válido
 
-    document.getElementById('productTitle').innerHTML = product.title;
+    document.getElementById('productproductTitle').innerHTML = product.productTitle;
     document.getElementById('price').innerHTML = product.price;
     document.getElementById('installments').innerHTML = product.installments;
     document.getElementById('btnBuy').href = product.buyLink;
@@ -516,7 +544,7 @@ function loadProduct() {
     product.thumbnails.forEach(img => {
         const thumb = document.createElement('img');
         thumb.src = img;
-        thumb.alt = product.title;
+        thumb.alt = product.productTitle;
         thumb.onclick = () => {
             document.getElementById('mainImage').src = img;
         };
