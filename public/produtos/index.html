@@ -86,7 +86,6 @@
             <!-- Coluna Imagens -->
             <div class="col-md-6 mobile-img">
                 <img id="mainImage" src="" class="main-image" alt="Produto">
-                <div id="thumbnails" class="d-flex flex-wrap"></div>
             </div>
             <!-- Coluna Informações -->
             <div class="col-md-6 text-white mobile-info">
@@ -137,7 +136,7 @@
         <!-- REDES SOCIAIS -->
         <div class="col-md-3 mb-4 text-md-end">
             <h6 class="fw-bold f-color">Siga-nos</h6>
-            <div class="d-flex gap-3 justify-content-md-end  footer-icon">
+            <div class="d-flex gap-3 justify-content-md-end footer-icon">
             <a href="https://www.instagram.com/lopes_dsgn" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
             <a href="https://www.behance.net/lopes_dsgn" class="text-white fs-4"><i class="fab fa-behance"></i></a>
             <a href="https://linktr.ee/lopes_dsgn" class="text-white fs-4"><i class="fab fa-chrome"></i></a>
@@ -544,8 +543,7 @@ function loadProduct() {
     document.getElementById('price').innerHTML = product.price;
     document.getElementById('installments').innerHTML = product.installments;
     document.getElementById('btnBuy').href = product.buyLink;
-    renderMainMedia(product.mainImage);
-
+    document.getElementById('mainImage').src = product.mainImage;
 
     // 🔹 Thumbnails
     const thumbnailsContainer = document.getElementById('thumbnails');
@@ -571,38 +569,6 @@ function loadProduct() {
         detailsContainer.appendChild(p);
     });
 }
-
-function renderMainMedia(src) {
-    const container = document.getElementById("mainMedia");
-
-    // limpa antes de renderizar
-    container.innerHTML = "";
-
-    // verifica se é vídeo
-    if (src.endsWith(".mp4")) {
-        container.innerHTML = `
-            <video 
-                class="w-100 rounded"
-                autoplay 
-                muted 
-                loop 
-                playsinline
-            >
-                <source src="${src}" type="video/mp4">
-                Seu navegador não suporta vídeo.
-            </video>
-        `;
-    } else {
-        container.innerHTML = `
-            <img 
-                src="${src}" 
-                class="w-100 rounded"
-                alt="Produto"
-            >
-        `;
-    }
-}
-
 
 // 🔹 Executa quando a página carregar
 window.addEventListener("DOMContentLoaded", loadProduct);
