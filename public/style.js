@@ -124,21 +124,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ===== FIM BANNER PRINCIPAL ===== */
 
+/* ===== CAMINHO BASE DAS IMAGENS ===== */
+const basePath = window.location.pathname.includes("/projetos/") ? "../images/" : "images/";
+
 /* ===== LISTA DE PROJETOS ===== */
 const listaProjetos = [
-  { slug: "barnno", nome: "Barnno", capa: "images/marcas/barnno/capa-barnno.webp" },
-  { slug: "bestshape", nome: "Best Shape Health Food", capa: "images/marcas/Bestshape/capa-best.webp" },
-  { slug: "lalolita", nome: "Lalolita Joias Folheadas", capa: "images/marcas/Lalolita/capa-lalolita.webp" },
-  { slug: "nina", nome: "Nina Distribuidora EK", capa: "images/marcas/ninaek/capa-nina.webp" },
-  { slug: "natane", nome: "Natane Menezes", capa: "images/marcas/natanemenezes/capa-natane.webp" },
-  { slug: "viviane", nome: "Viviane Boniolo", capa: "images/marcas/vivianeboniolo/capa-viviane.webp" },
-  { slug: "amarena", nome: "Amarena", capa: "images/marcas/Amarena/capa-amarena.webp" },
-  { slug: "cafeconffe", nome: "Cafeteria Café Conffé", capa: "images/marcas/cafeconffe/capa-cafeconffe.webp" },
-  { slug: "d2volt", nome: "D2VOLT - Soluções Elétricas", capa: "images/marcas/d2volt/capa-d2volt.webp" },
-  { slug: "veritas", nome: "Veritas Joias", capa: "images/marcas/veritas/capa-veritas.webp" },
-  { slug: "molupa", nome: "Molupa Lingerie", capa: "images/marcas/molupa/capa-molupa.webp" },
-  { slug: "elevora", nome: "Elévora Digital", capa: "images/marcas/elevoradigital/capa-elevora.webp" }
-]
+  { slug: "barnno", nome: "Barnno", capa: basePath + "marcas/barnno/capa-barnno.webp" },
+  { slug: "bestshape", nome: "Best Shape Health Food", capa: basePath + "marcas/Bestshape/capa-best.webp" },
+  { slug: "lalolita", nome: "Lalolita Joias Folheadas", capa: basePath + "marcas/Lalolita/capa-lalolita.webp" },
+  { slug: "nina", nome: "Nina Distribuidora EK", capa: basePath + "marcas/ninaek/capa-nina.webp" },
+  { slug: "natane", nome: "Natane Menezes", capa: basePath + "marcas/natanemenezes/capa-natane.webp" },
+  { slug: "viviane", nome: "Viviane Boniolo", capa: basePath + "marcas/vivianeboniolo/capa-viviane.webp" },
+  { slug: "amarena", nome: "Amarena", capa: basePath + "marcas/Amarena/capa-amarena.webp" },
+  { slug: "cafeconffe", nome: "Cafeteria Café Conffé", capa: basePath + "marcas/cafeconffe/capa-cafeconffe.webp" },
+  { slug: "d2volt", nome: "D2VOLT - Soluções Elétricas", capa: basePath + "marcas/d2volt/capa-d2volt.webp" },
+  { slug: "veritas", nome: "Veritas Joias", capa: basePath + "marcas/veritas/capa-veritas.webp" },
+  { slug: "molupa", nome: "Molupa Lingerie", capa: basePath + "marcas/molupa/capa-molupa.webp" },
+  { slug: "elevora", nome: "Elévora Digital", capa: basePath + "marcas/elevoradigital/capa-elevora.webp" }
+];
+
+
+
 
 /* ===== RENDERIZAÇÃO ===== */
 const container = document.getElementById("listaProjetos")
