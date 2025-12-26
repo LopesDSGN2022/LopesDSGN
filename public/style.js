@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===== CONTADORES ===== */
+  /* ===== CONTADOR ===== */
   const counters = document.querySelectorAll('.counter');
   let started = false;
 
@@ -39,8 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* ===== FIM CONTADOR ===== */
 
-  /* ===== SLIDER STRATEGY ===== */
+
+  /* ===== BANNER STRATEGY - IDV ===== */
   const strategyImages = [
     "images/logo/logo-1.webp",
     "images/logo/logo-2.webp",
@@ -92,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startStrategySlider();
   }
 
+  /* ===== FIM BANNER STRATEGY - IDV ===== */
 
   /* ===== BANNER PRINCIPAL ===== */
   const bannerImages = [
@@ -119,7 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
- /* ===== LISTA DE PROJETOS ===== */
+/* ===== FIM BANNER PRINCIPAL ===== */
+
+/* ===== LISTA DE PROJETOS ===== */
 const listaProjetos = [
   { slug: "barnno", nome: "Barnno", capa: "images/marcas/barnno/capa-barnno.webp" },
   { slug: "bestshape", nome: "Best Shape Health Food", capa: "images/marcas/Bestshape/capa-best.webp" },
@@ -158,3 +163,5 @@ if(container){
       `
     })
 }
+
+ /* ===== FIM LISTA DE PROJETOS ===== */

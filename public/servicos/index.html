@@ -58,19 +58,39 @@
     <p class="mb-5" style="color: #c9beff;">Os mais escolhidos!</p>
   </div>
 
-  <div id="cardsCarousel" class="carousel slide" data-bs-touch="true" data-bs-ride="false">
+  <div id="cardsCarousel" class="carousel slide cards-carousel" data-bs-touch="true" data-bs-ride="false">
 
     <!-- SETA ESQUERDA -->
     <button class="carousel-control-prev custom-arrow" type="button"
       data-bs-target="#cardsCarousel" data-bs-slide="prev">
-      ‹
+      
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+
     </button>
+
 
     <!-- SETA DIREITA -->
     <button class="carousel-control-next custom-arrow" type="button"
       data-bs-target="#cardsCarousel" data-bs-slide="next">
-      ›
+      
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+
     </button>
+
 
     <div class="carousel-inner">
 
@@ -82,7 +102,7 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/pacote-basico-idv" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-idv-1.webp" alt="Pacote Básico">
+                <img src="../images/card-1/pct-idv-1.webp" alt="Pacote Básico">
               </div>
               <small class="category">Identidade Visual</small>
               <h6>Pacote Básico</h6>
@@ -95,7 +115,7 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/pacote-medio-idv" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-idv-2.webp" alt="Pacote Médio">
+                <img src="../images/card-1/pct-idv-2.webp" alt="Pacote Médio">
               </div>
               <small class="category">Identidade Visual</small>
               <h6>Pacote Médio</h6>
@@ -108,7 +128,7 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/pacote-completo-idv" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-idv-3.webp" alt="Pacote Completo">
+                <img src="../images/card-1/pct-idv-3.webp" alt="Pacote Completo">
               </div>
               <small class="category">Identidade Visual</small>
               <h6>Pacote Completo</h6>
@@ -121,7 +141,7 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/pacote-premium-idv" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-idv-4.webp" alt="Pacote Premium">
+                <img src="../images/card-1/pct-idv-4.webp" alt="Pacote Premium">
               </div>
               <small class="category">Identidade Visual</small>
               <h6>Pacote Premium</h6>
@@ -143,10 +163,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/pacote-quatro-artes" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-criativos-1.webp" alt="Criação de Artes">
+                <img src="../images/card-1/pct-criativos-1.webp" alt="Criação de Artes">
               </div>
               <small class="category">Redes Sociais</small>
               <h6>Pacote 4 Artes</h6>
+              <p class="descrp">Único ou Carrossel</p>
               <p class="old-price">De: R$ 160,00 Por:</p>
               <p class="price">R$ 120,00</p>
             </a>
@@ -156,10 +177,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/pacote-doze-artes" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-criativos-2.webp" alt="Criação de Artes">
+                <img src="../images/card-1/pct-criativos-2.webp" alt="Criação de Artes">
               </div>
               <small class="category">Redes Sociais</small>
               <h6>Pacote 12 Artes</h6>
+              <p class="descrp">Único ou Carrossel</p>
               <p class="old-price">De: R$ 480,00 Por:</p>
               <p class="price">R$ 300,00</p>
             </a>
@@ -169,10 +191,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/papelaria-completo" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-papelaria.webp" alt="Panfletos, Cardápios, Outros.">
+                <img src="../images/card-1/pct-papelaria.webp" alt="Panfletos, Cardápios, Outros.">
               </div>
               <small class="category">Impressão</small>
               <h6>Papelaria Completo</h6>
+              <p class="descrp">Cartão, Crachá, Timbrado e Mais.</p>
               <p class="old-price">De: R$ 269,00 Por:</p>
               <p class="price">R$ 199,00</p>
             </a>
@@ -182,10 +205,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/estruturacao-instagram" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-1/pct-instagram.webp" alt="Instagram, Facebook, Outros.">
+                <img src="../images/card-1/pct-instagram.webp" alt="Instagram, Facebook, Outros.">
               </div>
               <small class="category">Instagram</small>
               <h6>Estruturação Feed</h6>
+              <p class="descrp">Capas, Destaques, Link e Mais.</p>
               <p class="old-price">De: R$ 139,00 Por:</p>
               <p class="price">R$ 109,00</p>
             </a>
@@ -208,18 +232,37 @@
     <p class="mb-5" style="color: #c9beff;">Profissionalize suas publicações!</p>
   </div>
 
-  <div id="cardsCarousel2" class="carousel slide" data-bs-touch="true" data-bs-ride="false">
+  <div id="cardsCarousel2" class="carousel slide cards-carousel" data-bs-touch="true" data-bs-ride="false">
 
     <!-- SETA ESQUERDA -->
     <button class="carousel-control-prev custom-arrow" type="button"
       data-bs-target="#cardsCarousel2" data-bs-slide="prev">
-      ‹
+      
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+
     </button>
+
 
     <!-- SETA DIREITA -->
     <button class="carousel-control-next custom-arrow" type="button"
       data-bs-target="#cardsCarousel2" data-bs-slide="next">
-      ›
+      
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+
     </button>
 
     <div class="carousel-inner">
@@ -232,11 +275,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/artes-mensais" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-2/art-msl-1.webp" alt="Redes Sociais">
+                <img src="../images/card-2/art-msl-1.webp" alt="Redes Sociais">
               </div>
               <small class="category">Redes Sociais</small>
               <h6>Artes Mensais</h6>
-              <p class="descrp">Posts, Descrição, Planejamento e Agendamento!</p>
+              <p class="descrp">Post, Planejamento e Mais.</p>
               <p class="old-price">De: R$ 599,99 Por:</p>
               <p class="price">R$ 499,99</p>
             </a>
@@ -246,7 +289,7 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/tratamento-de-foto" class="product-card">
               <div class="img-wrapper">
-                <video src="images/card-2/ttm-foto-1.mp4"
+                <video src="../images/card-2/ttm-foto-1.mp4"
                   autoplay
                   muted
                   loop
@@ -261,8 +304,8 @@
                 ></video>
               </div>
               <small class="category">Fotografia</small>
-              <h6>Tratamentos de Fotos</h6>
-              <p class="descrp">Restauração, Limpeza, Cores, Etc.</p>
+              <h6>Tratamento de Foto</h6>
+              <p class="descrp">Manipulação, Restauração e Mais.</p>
               <p class="old-price-2">A partir de: </p>
               <p class="price">R$ 25,00</p>
             </a>
@@ -272,7 +315,7 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/motion" class="product-card">
               <div class="img-wrapper">
-                <video src="images/card-2/motion-1.mp4"
+                <video src="../images/card-2/motion-1.mp4"
                   autoplay
                   muted
                   loop
@@ -289,7 +332,7 @@
 
               <small class="category">Motion</small>
               <h6>Edição de Vídeo</h6>
-              <p class="descrp">Publicidade, Anúncios, Placas, Stories, Etc.</p>
+              <p class="descrp">Publi, Anúncios, Stories e Mais.</p>
               <p class="old-price-2">Solicitar</p>
               <p class="price">Orçamento!</p>
             </a>
@@ -299,11 +342,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/site-institucional" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-2/site-ins-1.webp" alt="Site">
+                <img src="../images/card-2/site-ins-1.webp" alt="Site">
               </div>
               <small class="category">Site</small>
               <h6>Site Institucional</h6>
-              <p class="descrp">Site, Blog, Landing Page, Etc</p>
+              <p class="descrp">Site, Blog, Landing Page e Mais.</p>
               <p class="old-price-2">Solicitar</p>
               <p class="price">Orçamento!</p>
             </a>
@@ -321,10 +364,10 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/arte-unico" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-2/art-un-1.webp" alt="Criação de Artes">
+                <img src="../images/card-2/art-un-1.webp" alt="Criação de Artes">
               </div>
               <small class="category">Redes Sociais</small>
-              <h6>1 Arte - Único</h6>
+              <h6>Arte Único</h6>
               <p class="descrp">Post Único + Versão Storie</p>
               <p class="old-price">De: R$ 40,00 Por:</p>
               <p class="price">R$ 35,00</p>
@@ -335,10 +378,10 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/arte-carrossel" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-2/art-crs-1.webp" alt="Criação de Artes">
+                <img src="../images/card-2/art-crs-1.webp" alt="Criação de Artes">
               </div>
               <small class="category">Redes Sociais</small>
-              <h6>1 Arte - Carrossel</h6>
+              <h6>Arte Carrossel</h6>
               <p class="descrp">Post Carrossel + Versão Storie</p>
               <p class="old-price">De: R$ 50,00 Por:</p>
               <p class="price">R$ 45,00</p>
@@ -349,11 +392,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/papelaria-premium" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-2/pap-cmp-1.webp" alt="Panfletos, Cardápios, Outros.">
+                <img src="../images/card-2/pap-cmp-1.webp" alt="Panfletos, Cardápios, Outros.">
               </div>
               <small class="category">Impressão</small>
               <h6>Papelaria Premium</h6>
-              <p class="descrp">Cartão, Timbrado, Pasta, Crachá, Etc.</p>
+              <p class="descrp">Cartão, Timbrado, Pasta e Mais.</p>
               <p class="old-price">De: R$ 399,00 Por:</p>
               <p class="price">R$ 299,00</p>
             </a>
@@ -363,11 +406,11 @@
           <div class="col-6 col-lg-3">
             <a href="/produtos/estruturacao-feed-completa" class="product-card">
               <div class="img-wrapper">
-                <img src="images/card-2/est-feed-1.webp" alt="Instagram, Facebook, Outros.">
+                <img src="../images/card-2/est-feed-1.webp" alt="Instagram, Facebook, Outros.">
               </div>
               <small class="category">Instagram</small>
-              <h6>Estruturação Feed - Completa</h6>
-              <p class="descrp">Capa, Destaques, Descrição, Post, Link Person.</p>
+              <h6>Feed Completo</h6>
+              <p class="descrp">Destaques, Post, Link e Mais.</p>
               <p class="old-price">De: R$ 209,00 Por:</p>
               <p class="price">R$ 159,00</p>
             </a>
@@ -379,7 +422,6 @@
     </div>
   </div>
 </div>
-
     <!-- ===== WHATSAPP MOVEL ===== -->
     <a href="https://wa.me/5511989024678"
     target="_blank"
@@ -392,7 +434,7 @@
     <footer class="footer-custom pt-5 pb-4 text-white">
     <div class="container">
 
-        <div class="row">
+        <div class="row footer-mobile">
 
         <!-- ENDEREÇOS -->
         <div class="col-md-3 mb-4">

@@ -12,11 +12,13 @@
         margin: 32px 0 24px;
     }
 
-    /* ===== NAVBAR ===== */
+/* ===== NAVBAR ===== */
     .navbar {
       height: 72px;
       background: #111;
-      border-bottom: 1px solid #7b61ff46;
+      border-bottom: 1px solid #7b61ff46;  
+      position: relative;
+      z-index: 9999;
     }
 
     .navbar-brand {
@@ -112,4 +114,50 @@
     .btn-strategy:hover {
       background: #5641c0;
       color: #fff;
+    }
+
+     /* ===== RESPONSIVO ===== */
+    @media (max-width: 991px) {
+
+      .footer-mobile{
+        text-align: center;
+      }
+
+      .footer-icon{
+        display: flex !important;
+        justify-content: center !important;
+      }
+
+       .navbar-collapse {
+        background: #111;
+        padding: 20px;
+        border-radius: 12px;
+        z-index: 9999;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+      }
+
+      .navbar-collapse {
+        text-align: center;
+      }
+
+      .navbar-nav {
+        align-items: center;
+      }
+
+      .nav-item {
+        width: 100%;
+      }
+
+      .nav-link {
+        display: inline-block;
+      }
+
+      .d-flex.gap-2 {
+        justify-content: center;
+        margin-top: 15px;
+      }
+
     }
