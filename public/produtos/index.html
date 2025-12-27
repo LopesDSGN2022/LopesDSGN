@@ -565,7 +565,9 @@ function loadProduct() {
     document.getElementById('price').innerHTML = product.price;
     document.getElementById('installments').innerHTML = product.installments;
     document.getElementById('btnBuy').href = product.buyLink;
-    document.getElementById('mainImage').src = product.mainImage;
+    // document.getElementById('mainImage').src = product.mainImage;
+    renderMainMedia(product.mainImage);
+
 
     // 🔹 Thumbnails
     /*
