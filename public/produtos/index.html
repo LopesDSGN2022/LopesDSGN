@@ -85,7 +85,7 @@
         <div class="row">
             <!-- Coluna Imagens -->
             <div class="col-md-6 mobile-img">
-                <img id="mainImage" src="" class="main-image" alt="Produto">
+                <div id="mainImage" class="main-image" alt="Produto"></div>
             </div>
             <!-- Coluna Informações -->
             <div class="col-md-6 text-white mobile-info">
@@ -94,7 +94,7 @@
                 <p id="price" class="fs-3 fw-bold mb-1 font-price-mob"></p>
                 <a href="/contato" class="btn btn-strategy mt-3" id="btnBuy">Vamos lá</a>
                 <hr class="footer-divider">
-                <div id="Details" class="mobile-details"></div>
+                <div id="productDetails" class="mobile-details"></div>
             </div>
         </div>
     </div>
@@ -537,6 +537,28 @@ function loadProduct() {
         return;
     }
 
+    const mainMediaContainer = document.getElementById("mainImage");
+
+    function renderMainMedia(src) {
+    const isVideo = src.endsWith(".mp4");
+
+    mainMediaContainer.innerHTML = "";
+
+    if (isVideo) {
+        mainMediaContainer.innerHTML = `
+        <video controls autoplay muted loop class="img-fluid">
+            <source src="${src}" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+        `;
+    } else {
+        mainMediaContainer.innerHTML = `
+        <img src="${src}" class="img-fluid" alt="Produto">
+        `;
+    }
+    }
+
+
     // ✅ A partir daqui, o produto é válido
 
     document.getElementById('productTitle').innerHTML = product.productTitle;
@@ -546,6 +568,7 @@ function loadProduct() {
     document.getElementById('mainImage').src = product.mainImage;
 
     // 🔹 Thumbnails
+    /*
     const thumbnailsContainer = document.getElementById('thumbnails');
     thumbnailsContainer.innerHTML = '';
 
@@ -557,7 +580,7 @@ function loadProduct() {
             document.getElementById('mainImage').src = img;
         };
         thumbnailsContainer.appendChild(thumb);
-    });
+    }); */
 
     // 🔹 Detalhes do produto
     const detailsContainer = document.getElementById('productDetails');
