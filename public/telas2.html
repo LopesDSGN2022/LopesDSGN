@@ -33,6 +33,8 @@
       font-size: 1.1rem;
     }
 
+    .botao-data{width:200px;height:35px;border-radius:40px;background:transparent;font-size:13px;border:1px solid #fff;color:#fff;text-transform:uppercase;margin-bottom:30px}
+
     .btn-voltar {
       background: transparent;
       border: 1px solid #7B61FF;
@@ -50,12 +52,12 @@
       color: #fff;
     }
 
-    .banner-section {
+    .mockup-section {
       background: #0c0c0c;
       padding: 40px 0;
     }
 
-    .banner-grid {
+    .mockup-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
@@ -180,7 +182,7 @@
         font-size: 1.8rem;
       }
 
-      .banner-grid,
+      .mockup-grid,
       .artes-grid {
         grid-template-columns: 1fr;
       }
@@ -219,15 +221,33 @@
       <i class="fas fa-arrow-left"></i> Voltar aos Projetos
     </a>
     <h1 class="projeto-title" id="projetoNome">Carregando...</h1>
-    <p class="projeto-subtitle">Identidade Visual Completa</p>
+    <p class="projeto-subtitle botao-data">Identidade Visual</p>
+
+    <!-- CAROUSEL -->
+    <div id="carouselExampleCaptions" class="carousel slide mb-5">
+      <div class="carousel-inner" id="projectCarousel"></div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <p class="text-t mb-5" id="projectDescription"></p>
+
+    <a href="https://wa.me/5511989024678" target="_blank">
+      <button class="btn-tela">Mais informações</button>
+    </a>
   </div>
 </section>
 
-<!-- BANNERS -->
-<section class="banner-section">
+<!-- MOCKUPS -->
+<section class="mockup-section">
   <div class="container">
     <h2 class="section-title">Aplicações da Marca</h2>
-    <div class="banner-grid" id="bannersGrid"></div>
+    <div class="mockup-grid" id="mockupsGrid"></div>
   </div>
 </section>
 
@@ -327,7 +347,7 @@ const projetoSlug = urlParams.get('projeto');
 
 // ELEMENTOS
 const projetoNome = document.getElementById('projetoNome');
-const bannersGrid = document.getElementById('bannersGrid');
+const mockupsGrid = document.getElementById('mockupsGrid');
 const artesGrid = document.getElementById('artesGrid');
 const notFound = document.getElementById('projetoNotFound');
 const modal = document.getElementById('imageModal');
@@ -337,30 +357,30 @@ const modalClose = document.getElementById('modalClose');
 // VERIFICAR SE PROJETO EXISTE
 if (!projetoSlug || !projetosData[projetoSlug]) {
   document.querySelector('.projeto-header').style.display = 'none';
-  document.querySelector('.banner-section').style.display = 'none';
+  document.querySelector('.mockup-section').style.display = 'none';
   document.querySelector('.artes-section').style.display = 'none';
   notFound.style.display = 'block';
 } else {
   const projeto = projetosData[projetoSlug];
-  const basePath = `images/marcas/${projeto.pasta}/`;
+  const mockupPath = `images/marcas/${projeto.pasta}/`;
 
   // ATUALIZAR TÍTULO
   projetoNome.textContent = projeto.nome;
   document.title = `${projeto.nome} | Lopes DSGN`;
 
-  // CARREGAR BANNERS
+  // CARREGAR MOCKUPS
   for (let i = 1; i <= 5; i++) {
-    const bannerPath = `${basePath}banner${i}.webp`;
+    const mockupPath = `${mockupPath}banner${i}.webp`;
     const div = document.createElement('div');
     div.className = 'banner-item';
-    div.innerHTML = `<img src="${bannerPath}" alt="${projeto.nome} - Banner ${i}" onerror="this.parentElement.style.display='none'">`;
-    div.onclick = () => openModal(bannerPath);
-    bannersGrid.appendChild(div);
+    div.innerHTML = `<img src="${mockupPath}" alt="${projeto.nome} - Banner ${i}" onerror="this.parentElement.style.display='none'">`;
+    div.onclick = () => openModal(mockupPath);
+    mockupsGrid.appendChild(div);
   }
 
   // CARREGAR ARTES
   for (let i = 1; i <= 10; i++) {
-    const artePath = `${basePath}arte${i}.webp`;
+    const artePath = `${mockupPath}arte${i}.webp`;
     const div = document.createElement('div');
     div.className = 'arte-item';
     div.innerHTML = `<img src="${artePath}" alt="${projeto.nome} - Arte ${i}" onerror="this.parentElement.style.display='none'">`;
