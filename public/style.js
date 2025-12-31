@@ -132,15 +132,15 @@ const listaProjetos = [
   { slug: "barnno", nome: "Barnno", capa: basePath + "marcas/barnno/capa-barnno.webp" },
   { slug: "bestshape", nome: "Best Shape Health Food", capa: basePath + "marcas/Bestshape/capa-best.webp" },
   { slug: "lalolita", nome: "Lalolita Joias Folheadas", capa: basePath + "marcas/Lalolita/capa-lalolita.webp" },
-  { slug: "nina", nome: "Nina Distribuidora EK", capa: basePath + "marcas/ninaek/capa-nina.webp" },
-  { slug: "natane", nome: "Natane Menezes", capa: basePath + "marcas/natanemenezes/capa-natane.webp" },
-  { slug: "viviane", nome: "Viviane Boniolo", capa: basePath + "marcas/vivianeboniolo/capa-viviane.webp" },
+  { slug: "ninaek", nome: "Nina Distribuidora EK", capa: basePath + "marcas/ninaek/capa-nina.webp" },
+  { slug: "natanemenezes", nome: "Natane Menezes", capa: basePath + "marcas/natanemenezes/capa-natane.webp" },
+  { slug: "vivianeboniolo", nome: "Viviane Boniolo", capa: basePath + "marcas/vivianeboniolo/capa-viviane.webp" },
   { slug: "amarena", nome: "Amarena", capa: basePath + "marcas/Amarena/capa-amarena.webp" },
   { slug: "cafeconffe", nome: "Cafeteria Café Conffé", capa: basePath + "marcas/cafeconffe/capa-cafeconffe.webp" },
   { slug: "d2volt", nome: "D2VOLT - Soluções Elétricas", capa: basePath + "marcas/d2volt/capa-d2volt.webp" },
   { slug: "veritas", nome: "Veritas Joias", capa: basePath + "marcas/veritas/capa-veritas.webp" },
   { slug: "molupa", nome: "Molupa Lingerie", capa: basePath + "marcas/molupa/capa-molupa.webp" },
-  { slug: "elevora", nome: "Elévora Digital", capa: basePath + "marcas/elevoradigital/capa-elevora.webp" }
+  { slug: "elevoradigital", nome: "Elévora Digital", capa: basePath + "marcas/elevoradigital/capa-elevora.webp" }
 ];
 
 
@@ -158,7 +158,7 @@ if(container){
     .forEach(projeto => {
       container.innerHTML += `
         <div class="image">
-          <a href="/telas2.html?projeto=${projeto.slug}">
+          <a href="/marcas.html?projeto=${projeto.slug}">
             <img src="${projeto.capa}" class="banner-projeto" alt="${projeto.nome}">
             <div class="contenttt">
               <h1>${projeto.nome}</h1>
