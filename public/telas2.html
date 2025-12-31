@@ -220,31 +220,6 @@
     </a>
     <h1 class="projeto-title" id="projetoNome">Carregando...</h1>
     <p class="projeto-subtitle">Identidade Visual Completa</p>
-      <section class="mockup-section">
-      <div id="carouselExampleCaptions" class="carousel slide">
-          <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-          </div>
-          <div class="carousel-inner">
-          <div class="carousel-item">
-              <div class="mockupGrid d-block w-100" id="mockupGrid"></div>
-              <div class="carousel-caption d-none d-md-block">
-              </div>
-          </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-          </button>
-      </div>
-  </section>
   </div>
 </section>
 
@@ -350,9 +325,8 @@ const projetosData = {
 const urlParams = new URLSearchParams(window.location.search);
 const projetoSlug = urlParams.get('projeto');
 
-// ELEMENTOSmockup-grid
+// ELEMENTOS
 const projetoNome = document.getElementById('projetoNome');
-const mockupGrid = document.getElementById('mockupGrid');
 const bannersGrid = document.getElementById('bannersGrid');
 const artesGrid = document.getElementById('artesGrid');
 const notFound = document.getElementById('projetoNotFound');
@@ -363,7 +337,6 @@ const modalClose = document.getElementById('modalClose');
 // VERIFICAR SE PROJETO EXISTE
 if (!projetoSlug || !projetosData[projetoSlug]) {
   document.querySelector('.projeto-header').style.display = 'none';
-  document.querySelector('.mockup-section').style.display = 'none';
   document.querySelector('.banner-section').style.display = 'none';
   document.querySelector('.artes-section').style.display = 'none';
   notFound.style.display = 'block';
@@ -374,17 +347,6 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
   // ATUALIZAR TÍTULO
   projetoNome.textContent = projeto.nome;
   document.title = `${projeto.nome} | Lopes DSGN`;
-
-    // CARREGAR BANNERS PC
-  for (let i = 1; i <= 5; i++) {
-    const mockup = `${basePath}mockup${i}.webp`;
-    const div = document.createElement('div');
-    div.className = 'mockup-item';
-    div.innerHTML = `<img src="${mockupPath}" alt="${projeto.nome} - mockup ${i}" onerror="this.parentElement.style.display='none'">`;
-    div.onclick = () => openModal(mockupPath);
-    mockupGrid.appendChild(div);
-  }
-
 
   // CARREGAR BANNERS
   for (let i = 1; i <= 5; i++) {
