@@ -220,7 +220,7 @@
     </a>
     <h1 class="projeto-title" id="projetoNome">Carregando...</h1>
     <p class="projeto-subtitle">Identidade Visual Completa</p>
-      <section class="c-carrousel">
+      <section class="mockup-section">
       <div id="carouselExampleCaptions" class="carousel slide">
           <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -363,6 +363,7 @@ const modalClose = document.getElementById('modalClose');
 // VERIFICAR SE PROJETO EXISTE
 if (!projetoSlug || !projetosData[projetoSlug]) {
   document.querySelector('.projeto-header').style.display = 'none';
+  document.querySelector('.mockup-section').style.display = 'none';
   document.querySelector('.banner-section').style.display = 'none';
   document.querySelector('.artes-section').style.display = 'none';
   notFound.style.display = 'block';
@@ -379,7 +380,7 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
     const mockup = `${basePath}mockup${i}.webp`;
     const div = document.createElement('div');
     div.className = 'mockup-item';
-    div.innerHTML = `<img src="${mockupPath}" alt="${projeto.nome} - Banner ${i}" onerror="this.parentElement.style.display='none'">`;
+    div.innerHTML = `<img src="${mockupPath}" alt="${projeto.nome} - mockup ${i}" onerror="this.parentElement.style.display='none'">`;
     div.onclick = () => openModal(mockupPath);
     mockupGrid.appendChild(div);
   }
