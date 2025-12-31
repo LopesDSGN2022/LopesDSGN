@@ -17,7 +17,7 @@
   <style>
     .projeto-header {
       background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-      padding: 60px 0 50px;
+      padding: 60px 0 40px;
       border-bottom: 2px solid #7B61FF;
     }
 
@@ -47,6 +47,7 @@
 
     .btn-voltar:hover {
       background: #7B61FF;
+      color: #fff;
     }
 
     .banner-section {
@@ -58,29 +59,33 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
+      margin-bottom: 40px;
     }
 
     .banner-item {
+      position: relative;
       overflow: hidden;
       border-radius: 12px;
+      aspect-ratio: 16/9;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
 
     .banner-item:hover {
       transform: scale(1.02);
-      box-shadow: 0 8px 30px rgba(123,97,255,.3);
+      box-shadow: 0 8px 30px rgba(123, 97, 255, 0.3);
     }
 
     .banner-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .artes-section {
       background: #000;
-      padding: 50px 0 60px;
+      padding: 40px 0 60px;
     }
 
     .section-title {
@@ -89,8 +94,10 @@
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 30px;
+      padding-bottom: 15px;
       border-bottom: 2px solid #7B61FF;
-      padding-bottom: 10px;
+      display: inline-block;
+      width: 100%;
     }
 
     .artes-grid {
@@ -100,31 +107,48 @@
     }
 
     .arte-item {
-      background: #111;
-      border-radius: 8px;
+      position: relative;
       overflow: hidden;
+      border-radius: 8px;
+      background: #111;
+      transition: transform 0.3s ease;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
     .arte-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(123,97,255,.4);
+      box-shadow: 0 10px 30px rgba(123, 97, 255, 0.4);
     }
 
     .arte-item img {
       width: 100%;
+      height: auto;
       display: block;
     }
 
+    .projeto-not-found {
+      text-align: center;
+      padding: 100px 20px;
+      color: #fff;
+    }
+
+    .projeto-not-found h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Modal para visualização */
     .image-modal {
       display: none;
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.95);
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
-      z-index: 9999;
     }
 
     .image-modal.active {
@@ -134,53 +158,72 @@
     .modal-content-img {
       max-width: 90%;
       max-height: 90vh;
+      object-fit: contain;
     }
 
     .modal-close {
       position: absolute;
       top: 20px;
       right: 40px;
-      font-size: 40px;
       color: #fff;
+      font-size: 40px;
+      font-weight: bold;
       cursor: pointer;
     }
 
+    .modal-close:hover {
+      color: #7B61FF;
+    }
+
     @media (max-width: 768px) {
-      .projeto-title { font-size: 1.8rem; }
+      .projeto-title {
+        font-size: 1.8rem;
+      }
+
+      .banner-grid,
+      .artes-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
-<section class="projeto-header text-center">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
+    <a class="navbar-brand" href="/">LOPESDSGN</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/quem-somos">Quem Somos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+      </ul>
+      <div class="d-flex gap-2">
+        <a href="/criativos" class="btn btn-menu btn-cta">Criativos</a>
+        <a href="/projetos" class="btn btn-menu btn-cta">Identidade Visual</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER DO PROJETO -->
+<section class="projeto-header">
+  <div class="container text-center">
     <a href="/projetos" class="btn-voltar">
       <i class="fas fa-arrow-left"></i> Voltar aos Projetos
     </a>
-
     <h1 class="projeto-title" id="projetoNome">Carregando...</h1>
     <p class="projeto-subtitle">Identidade Visual Completa</p>
-
-    <p class="text-light mt-3 mx-auto" style="max-width: 720px; opacity: .85;" id="projetoDescricao"></p>
-
-    <!-- CARROSSEL -->
-    <div id="carouselProjeto" class="carousel slide mt-4" data-bs-ride="carousel">
-      <div class="carousel-inner" id="carouselInner"></div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjeto" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselProjeto" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
   </div>
 </section>
 
-<!-- MOCKUPS -->
+<!-- BANNERS -->
 <section class="banner-section">
   <div class="container">
     <h2 class="section-title">Aplicações da Marca</h2>
@@ -196,93 +239,156 @@
   </div>
 </section>
 
-<!-- MODAL -->
-<div id="imageModal" class="image-modal">
-  <span class="modal-close" id="modalClose">&times;</span>
-  <img id="modalImage" class="modal-content-img">
+<!-- PROJETO NÃO ENCONTRADO -->
+<div id="projetoNotFound" class="projeto-not-found" style="display: none;">
+  <h2>Projeto não encontrado</h2>
+  <p>O projeto que você está procurando não existe ou foi removido.</p>
+  <a href="/projetos" class="btn-voltar" style="margin-top: 20px;">
+    <i class="fas fa-arrow-left"></i> Voltar aos Projetos
+  </a>
 </div>
 
+<!-- MODAL DE IMAGEM -->
+<div id="imageModal" class="image-modal">
+  <span class="modal-close" id="modalClose">&times;</span>
+  <img class="modal-content-img" id="modalImage" alt="Visualização ampliada">
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5511989024678"
+   target="_blank"
+   class="whatsapp-float"
+   aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer class="footer-custom pt-5 pb-4 text-white">
+  <div class="container">
+    <div class="row footer-mobile">
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold f-color">Local</h6>
+        <p class="mb-2">Brasil<br>São Paulo - Capital</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold f-color">Contato</h6>
+        <p class="mb-1">WhatsApp: <a href="https://wa.me/5511989024678" class="text-white ft-border" style="text-decoration: none;">Faça seu Orçamento</a></p>
+        <p class="mb-3">Linktree: <a href="https://linktr.ee/lopes_dsgn" class="text-white ft-border" style="text-decoration: none;">Lopes_Dsgn</a></p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold f-color">Navegação</h6>
+        <ul class="list-unstyled">
+          <li><a href="/" class="text-white ft-border" style="text-decoration: none;">Home</a></li>
+          <li><a href="/servicos" class="text-white ft-border" style="text-decoration: none;">Serviços</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4 text-md-end">
+        <h6 class="fw-bold f-color">Siga-nos</h6>
+        <div class="d-flex gap-3 justify-content-md-end footer-icon">
+          <a href="https://www.instagram.com/lopes_dsgn" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.behance.net/lopes_dsgn" class="text-white fs-4"><i class="fab fa-behance"></i></a>
+          <a href="https://linktr.ee/lopes_dsgn" class="text-white fs-4"><i class="fab fa-chrome"></i></a>
+          <a href="https://wa.me/5511989024678" class="text-white fs-4"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <div class="row">
+      <div class="col text-center text-secondary small">
+        © 2025 LOPESDSGN – Todos os direitos reservados
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+// DADOS DOS PROJETOS
 const projetosData = {
-  barnno: {
-    nome: "Barnno",
-    pasta: "barnno",
-    descricao: "Projeto de identidade visual com foco em posicionamento premium e aplicações digitais."
-  }
+  barnno: { nome: "Barnno", pasta: "barnno" },
+  bestshape: { nome: "Best Shape Health Food", pasta: "bestshape" },
+  lalolita: { nome: "Lalolita Joias Folheadas", pasta: "Lalolita" },
+  nina: { nome: "Nina Distribuidora EK", pasta: "ninaek" },
+  natane: { nome: "Natane Menezes", pasta: "natanemenezes" },
+  viviane: { nome: "Viviane Boniolo", pasta: "vivianeboniolo" },
+  amarena: { nome: "Amarena", pasta: "Amarena" },
+  cafeconffe: { nome: "Cafeteria Café Conffé", pasta: "cafeconffe" },
+  d2volt: { nome: "D2VOLT - Soluções Elétricas", pasta: "d2volt" },
+  veritas: { nome: "Veritas Joias", pasta: "veritas" },
+  molupa: { nome: "Molupa Lingerie", pasta: "molupa" },
+  elevora: { nome: "Elévora Digital", pasta: "elevoradigital" }
 };
 
-const params = new URLSearchParams(window.location.search);
-const slug = params.get("projeto");
+// OBTER PARÂMETRO DA URL
+const urlParams = new URLSearchParams(window.location.search);
+const projetoSlug = urlParams.get('projeto');
 
-const projetoNome = document.getElementById("projetoNome");
-const projetoDescricao = document.getElementById("projetoDescricao");
-const carouselInner = document.getElementById("carouselInner");
-const bannersGrid = document.getElementById("bannersGrid");
-const artesGrid = document.getElementById("artesGrid");
+// ELEMENTOS
+const projetoNome = document.getElementById('projetoNome');
+const bannersGrid = document.getElementById('bannersGrid');
+const artesGrid = document.getElementById('artesGrid');
+const notFound = document.getElementById('projetoNotFound');
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const modalClose = document.getElementById('modalClose');
 
-if (!slug || !projetosData[slug]) {
-  document.body.innerHTML = "<h2 style='color:#fff;text-align:center;padding:100px'>Projeto não encontrado</h2>";
+// VERIFICAR SE PROJETO EXISTE
+if (!projetoSlug || !projetosData[projetoSlug]) {
+  document.querySelector('.projeto-header').style.display = 'none';
+  document.querySelector('.banner-section').style.display = 'none';
+  document.querySelector('.artes-section').style.display = 'none';
+  notFound.style.display = 'block';
 } else {
-  const projeto = projetosData[slug];
+  const projeto = projetosData[projetoSlug];
   const basePath = `images/marcas/${projeto.pasta}/`;
 
+  // ATUALIZAR TÍTULO
   projetoNome.textContent = projeto.nome;
-  projetoDescricao.textContent = projeto.descricao || "";
+  document.title = `${projeto.nome} | Lopes DSGN`;
 
-  // CARROSSEL (até 5 banners)
-  let slideAtivo = false;
+  // CARREGAR BANNERS
   for (let i = 1; i <= 5; i++) {
-    const path = `${basePath}banner${i}.webp`;
-    const slide = document.createElement("div");
-    slide.className = "carousel-item";
-
-    slide.innerHTML = `<img src="${path}" class="d-block w-100 rounded-4"
-      onerror="this.parentElement.remove()">`;
-
-    carouselInner.appendChild(slide);
-    if (!slideAtivo) {
-      slide.classList.add("active");
-      slideAtivo = true;
-    }
-  }
-
-  // MOCKUPS
-  for (let i = 1; i <= 5; i++) {
-    const path = `${basePath}mockup${i}.webp`;
-    const div = document.createElement("div");
-    div.className = "banner-item";
-    div.innerHTML = `<img src="${path}" onerror="this.parentElement.remove()">`;
-    div.onclick = () => openModal(path);
+    const bannerPath = `${basePath}banner${i}.webp`;
+    const div = document.createElement('div');
+    div.className = 'banner-item';
+    div.innerHTML = `<img src="${bannerPath}" alt="${projeto.nome} - Banner ${i}" onerror="this.parentElement.style.display='none'">`;
+    div.onclick = () => openModal(bannerPath);
     bannersGrid.appendChild(div);
   }
 
-  // ARTES
+  // CARREGAR ARTES
   for (let i = 1; i <= 10; i++) {
-    const path = `${basePath}arte${i}.webp`;
-    const div = document.createElement("div");
-    div.className = "arte-item";
-    div.innerHTML = `<img src="${path}" onerror="this.parentElement.remove()">`;
-    div.onclick = () => openModal(path);
+    const artePath = `${basePath}arte${i}.webp`;
+    const div = document.createElement('div');
+    div.className = 'arte-item';
+    div.innerHTML = `<img src="${artePath}" alt="${projeto.nome} - Arte ${i}" onerror="this.parentElement.style.display='none'">`;
+    div.onclick = () => openModal(artePath);
     artesGrid.appendChild(div);
   }
 }
 
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImage");
-const modalClose = document.getElementById("modalClose");
-
-function openModal(src) {
-  modal.classList.add("active");
-  modalImg.src = src;
-  document.body.style.overflow = "hidden";
+// FUNÇÕES DO MODAL
+function openModal(imageSrc) {
+  modal.classList.add('active');
+  modalImg.src = imageSrc;
+  document.body.style.overflow = 'hidden';
 }
 
-modalClose.onclick = () => {
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+modalClose.onclick = closeModal;
+modal.onclick = (e) => {
+  if (e.target === modal) closeModal();
 };
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
 </script>
 
 </body>
