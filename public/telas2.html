@@ -18,7 +18,7 @@
     .projeto-header {
       background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
       padding: 60px 0 40px;
-      border-bottom: 2px solid #7B61FF;
+      border-bottom: 2px solid #7b61ff42;
     }
 
     .projeto-title {
@@ -29,8 +29,15 @@
     }
 
     .projeto-subtitle {
+      width:200px;
+      height:35px;
+      border-radius:40px;
+      border: 1px solid #fff;
       color: #c9beff;
+      background:transparent;
       font-size: 1.1rem;
+      text-transform:uppercase;
+      margin-bottom:30px
     }
 
     .btn-voltar {
@@ -258,7 +265,7 @@
   </div>
 </section>
 
-<section class="retorno">
+<section class="text-center">
     <a href="/projetos" class="btn-voltar">
       <i class="fas fa-arrow-left"></i> Voltar aos Projetos
     </a>
@@ -330,43 +337,107 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// ================= DADOS DOS PROJETOS =================
+// ================= DADOS BÁSICOS DOS PROJETOS (IMAGENS) =================
 const projetosData = {
   barnno: { nome: "Barnno", pasta: "barnno" },
   bestshape: { nome: "Best Shape Health Food", pasta: "bestshape" },
-  lalolita: { nome: "Lalolita Joias Folheadas", pasta: "Lalolita" },
-  nina: { nome: "Nina Distribuidora EK", pasta: "ninaek" },
-  natane: { nome: "Natane Menezes", pasta: "natanemenezes" },
-  viviane: { nome: "Viviane Boniolo", pasta: "vivianeboniolo" },
-  amarena: { nome: "Amarena", pasta: "Amarena" },
+  lalolita: { nome: "Lalolita Joias Folheadas", pasta: "lalolita" },
+  ninaek: { nome: "Nina Distribuidora EK", pasta: "ninaek" },
+  natanemenezes: { nome: "Natane Menezes", pasta: "natanemenezes" },
+  vivianeboniolo: { nome: "Viviane Boniolo", pasta: "vivianeboniolo" },
+  amarena: { nome: "Amarena", pasta: "amarena" },
   cafeconffe: { nome: "Cafeteria Café Conffé", pasta: "cafeconffe" },
   d2volt: { nome: "D2VOLT - Soluções Elétricas", pasta: "d2volt" },
   veritas: { nome: "Veritas Joias", pasta: "veritas" },
   molupa: { nome: "Molupa Lingerie", pasta: "molupa" },
-  elevora: { nome: "Elévora Digital", pasta: "elevoradigital" }
+  elevoradigital: { nome: "Elévora Digital", pasta: "elevoradigital" }
 };
 
-// ================= URL =================
+// ================= DESCRIÇÕES DOS PROJETOS =================
+const projetosFiltrados = {
+  barnno: {
+    nome: "Barnno",
+    descricao: "Desenvolvimento da Identidade Visual da marca de roupas streetwear, Barnno. A Barnno busca se destacar não apenas pela qualidade de suas peças, mas também pela exclusividade e sofisticação que oferece aos seus clientes. A identidade visual foi cuidadosamente desenvolvida para transmitir elegância, simplicidade e exclusividade."
+  },
+
+  bestshape: {
+    nome: "Best Shape Health Food",
+    descricao: "Desenvolvimento de identidade visual para Best Shape Health Food, marca de alimentos e marmitas saudáveis. O projeto buscou transmitir descontração, atratividade e profissionalismo, reforçando saúde, frescor e um estilo de vida equilibrado."
+  },
+
+  lalolita: {
+    nome: "Lalolita Joias Folheadas",
+    descricao: "Identidade visual desenvolvida para a joalheria Lalolita, especializada em joias folheadas em ouro. O conceito adotado foi minimalista, elegante e moderno, transmitindo credibilidade e sofisticação."
+  },
+
+  ninaek: {
+    nome: "Nina Distribuidora EK",
+    descricao: "Projeto realizado para a Nina Distribuidora, empresa de produtos capilares 100% veganos. O trabalho envolveu a criação de artes para mídias sociais e materiais institucionais."
+  },
+
+  natanemenezes: {
+    nome: "Natane Menezes - Nutricionista",
+    descricao: "Identidade visual desenvolvida para a nutricionista esportiva Natane Menezes, transmitindo energia, profissionalismo e credibilidade por meio de cores vibrantes e elementos ligados à saúde e performance."
+  },
+
+  vivianeboniolo: {
+    nome: "Viviane Boniolo - Nutricionista",
+    descricao: "Identidade visual desenvolvida para a nutricionista Viviane Boniolo, com foco em mulheres acima de 40 anos. A marca foi pensada para ser elegante, moderna e sofisticada."
+  },
+
+  d2volt: {
+    nome: "D2VOLT - Soluções Elétricas",
+    descricao: "Identidade visual desenvolvida para a D2Volt, empresa especializada em soluções elétricas. A proposta foi criar uma marca moderna, técnica e confiável."
+  },
+
+  amarena: {
+    nome: "Amarena",
+    descricao: "Identidade visual desenvolvida para a joalheria Amarena, com conceito minimalista, elegante e jovial, transmitindo leveza e sofisticação."
+  },
+
+  elevoradigital: {
+    nome: "Elévora Digital",
+    descricao: "Identidade institucional desenvolvida para a Elévora Digital, focada em tráfego pago e performance, traduzindo crescimento, estratégia e evolução."
+  },
+
+  cafeconffe: {
+    nome: "Cafeteria Café Conffé",
+    descricao: "Identidade visual desenvolvida para a cafeteria Café Conffé, unindo tradição e modernidade em uma marca acolhedora e contemporânea."
+  },
+
+  veritas: {
+    nome: "Veritas Joias",
+    descricao: "Identidade visual desenvolvida para a Veritas Joias, com foco em elegância atemporal, autenticidade e sofisticação, transmitindo confiança e credibilidade."
+  },
+
+  molupa: {
+    nome: "Molupa Lingerie",
+    descricao: "Identidade visual desenvolvida para a Molupa Lingerie, equilibrando sensualidade, conforto e elegância, com foco na valorização da autoestima feminina."
+  }
+};
+
+// ================= SLUG =================
 const urlParams = new URLSearchParams(window.location.search);
-const projetoSlug = urlParams.get('projeto');
+const projetoSlug = urlParams.get("projeto");
 
 // ================= ELEMENTOS =================
-const projetoNome = document.getElementById('projetoNome');
-const projectCarousel = document.getElementById('projectCarousel');
-const mockupsGrid = document.getElementById('mockupsGrid');
-const artesGrid = document.getElementById('artesGrid');
-const notFound = document.getElementById('projetoNotFound');
+const projetoNome = document.getElementById("projetoNome");
+const projectCarousel = document.getElementById("projectCarousel");
+const mockupsGrid = document.getElementById("mockupsGrid");
+const artesGrid = document.getElementById("artesGrid");
+const descricaoEl = document.getElementById("projectDescription");
+const notFound = document.getElementById("projetoNotFound");
 
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImage');
-const modalClose = document.getElementById('modalClose');
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const modalClose = document.getElementById("modalClose");
 
 // ================= VERIFICAÇÃO =================
 if (!projetoSlug || !projetosData[projetoSlug]) {
-  document.querySelector('.projeto-header').style.display = 'none';
-  document.querySelector('.mockup-section').style.display = 'none';
-  document.querySelector('.artes-section').style.display = 'none';
-  notFound.style.display = 'block';
+  document.querySelector(".projeto-header").style.display = "none";
+  document.querySelector(".mockup-section").style.display = "none";
+  document.querySelector(".artes-section").style.display = "none";
+  notFound.style.display = "block";
 } else {
 
   const projeto = projetosData[projetoSlug];
@@ -375,14 +446,21 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
   projetoNome.textContent = projeto.nome;
   document.title = `${projeto.nome} | Lopes DSGN`;
 
-  // ================= CAROUSEL (banner?.webp) =================
-  let hasBanner = false;
+  // ================= DESCRIÇÃO =================
+  const infoProjeto = projetosFiltrados[projetoSlug];
 
+  if (infoProjeto && infoProjeto.descricao) {
+    descricaoEl.textContent = infoProjeto.descricao;
+  } else {
+    descricaoEl.style.display = "none";
+  }
+
+  // ================= CAROUSEL (banner?.webp) =================
   for (let i = 1; i <= 5; i++) {
     const imgPath = `${basePath}banner${i}.webp`;
 
-    const item = document.createElement('div');
-    item.className = `carousel-item ${i === 1 ? 'active' : ''}`;
+    const item = document.createElement("div");
+    item.className = `carousel-item ${i === 1 ? "active" : ""}`;
     item.innerHTML = `
       <img src="${imgPath}"
            class="d-block w-100"
@@ -391,13 +469,11 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
     `;
 
     projectCarousel.appendChild(item);
-    hasBanner = true;
   }
 
-  // Se nenhum banner existir, esconde o carousel inteiro
   setTimeout(() => {
     if (!projectCarousel.children.length) {
-      document.getElementById('carouselExampleCaptions').style.display = 'none';
+      document.getElementById("carouselExampleCaptions").style.display = "none";
     }
   }, 100);
 
@@ -405,8 +481,8 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
   for (let i = 1; i <= 6; i++) {
     const imgPath = `${basePath}mockup${i}.webp`;
 
-    const div = document.createElement('div');
-    div.className = 'banner-item';
+    const div = document.createElement("div");
+    div.className = "banner-item";
     div.innerHTML = `
       <img src="${imgPath}"
            alt="${projeto.nome} - Mockup ${i}"
@@ -421,8 +497,8 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
   for (let i = 1; i <= 12; i++) {
     const imgPath = `${basePath}arte${i}.webp`;
 
-    const div = document.createElement('div');
-    div.className = 'arte-item';
+    const div = document.createElement("div");
+    div.className = "arte-item";
     div.innerHTML = `
       <img src="${imgPath}"
            alt="${projeto.nome} - Arte ${i}"
@@ -436,15 +512,15 @@ if (!projetoSlug || !projetosData[projetoSlug]) {
 
 // ================= MODAL =================
 function openModal(src) {
-  modal.classList.add('active');
+  modal.classList.add("active");
   modalImg.src = src;
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
-  modal.classList.remove('active');
+  modal.classList.remove("active");
   modalImg.src = "";
-  document.body.style.overflow = 'auto';
+  document.body.style.overflow = "auto";
 }
 
 modalClose.onclick = closeModal;
@@ -453,10 +529,11 @@ modal.onclick = (e) => {
   if (e.target === modal) closeModal();
 };
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
 });
 </script>
+
 
 </body>
 </html>
