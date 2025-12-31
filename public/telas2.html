@@ -33,8 +33,6 @@
       font-size: 1.1rem;
     }
 
-    .botao-data{width:200px;height:35px;border-radius:40px;background:transparent;font-size:13px;border:1px solid #fff;color:#fff;text-transform:uppercase;margin-bottom:30px}
-
     .btn-voltar {
       background: transparent;
       border: 1px solid #7B61FF;
@@ -221,19 +219,23 @@
       <i class="fas fa-arrow-left"></i> Voltar aos Projetos
     </a>
     <h1 class="projeto-title" id="projetoNome">Carregando...</h1>
-    <p class="projeto-subtitle botao-data">Identidade Visual</p>
+    <p class="projeto-subtitle">Identidade Visual</p>
 
-    <!-- CAROUSEL -->
-    <div id="carouselExampleCaptions" class="carousel slide mb-5">
-      <div class="carousel-inner" id="projectCarousel"></div>
+ <!-- CAROUSEL -->
+<div id="carouselExampleCaptions" class="carousel slide mb-5">
+  <div class="carousel-inner" id="projectCarousel"></div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
+  <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
 
     <p class="text-t mb-5" id="projectDescription"></p>
 
@@ -325,7 +327,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// DADOS DOS PROJETOS
+// ================= DADOS DOS PROJETOS =================
 const projetosData = {
   barnno: { nome: "Barnno", pasta: "barnno" },
   bestshape: { nome: "Best Shape Health Food", pasta: "bestshape" },
@@ -341,67 +343,109 @@ const projetosData = {
   elevora: { nome: "Elévora Digital", pasta: "elevoradigital" }
 };
 
-// OBTER PARÂMETRO DA URL
+// ================= URL =================
 const urlParams = new URLSearchParams(window.location.search);
 const projetoSlug = urlParams.get('projeto');
 
-// ELEMENTOS
+// ================= ELEMENTOS =================
 const projetoNome = document.getElementById('projetoNome');
+const projectCarousel = document.getElementById('projectCarousel');
 const mockupsGrid = document.getElementById('mockupsGrid');
 const artesGrid = document.getElementById('artesGrid');
 const notFound = document.getElementById('projetoNotFound');
+
 const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImage');
 const modalClose = document.getElementById('modalClose');
 
-// VERIFICAR SE PROJETO EXISTE
+// ================= VERIFICAÇÃO =================
 if (!projetoSlug || !projetosData[projetoSlug]) {
   document.querySelector('.projeto-header').style.display = 'none';
   document.querySelector('.mockup-section').style.display = 'none';
   document.querySelector('.artes-section').style.display = 'none';
   notFound.style.display = 'block';
 } else {
-  const projeto = projetosData[projetoSlug];
-  const mockupPath = `images/marcas/${projeto.pasta}/`;
 
-  // ATUALIZAR TÍTULO
+  const projeto = projetosData[projetoSlug];
+  const basePath = `images/marcas/${projeto.pasta}/`;
+
   projetoNome.textContent = projeto.nome;
   document.title = `${projeto.nome} | Lopes DSGN`;
 
-  // CARREGAR MOCKUPS
+  // ================= CAROUSEL (banner?.webp) =================
+  let hasBanner = false;
+
   for (let i = 1; i <= 5; i++) {
-    const mockupPath = `${mockupPath}banner${i}.webp`;
+    const imgPath = `${basePath}banner${i}.webp`;
+
+    const item = document.createElement('div');
+    item.className = `carousel-item ${i === 1 ? 'active' : ''}`;
+    item.innerHTML = `
+      <img src="${imgPath}"
+           class="d-block w-100"
+           alt="${projeto.nome} - Banner ${i}"
+           onerror="this.parentElement.remove()">
+    `;
+
+    projectCarousel.appendChild(item);
+    hasBanner = true;
+  }
+
+  // Se nenhum banner existir, esconde o carousel inteiro
+  setTimeout(() => {
+    if (!projectCarousel.children.length) {
+      document.getElementById('carouselExampleCaptions').style.display = 'none';
+    }
+  }, 100);
+
+  // ================= MOCKUPS =================
+  for (let i = 1; i <= 6; i++) {
+    const imgPath = `${basePath}mockup${i}.webp`;
+
     const div = document.createElement('div');
     div.className = 'banner-item';
-    div.innerHTML = `<img src="${mockupPath}" alt="${projeto.nome} - Banner ${i}" onerror="this.parentElement.style.display='none'">`;
-    div.onclick = () => openModal(mockupPath);
+    div.innerHTML = `
+      <img src="${imgPath}"
+           alt="${projeto.nome} - Mockup ${i}"
+           onerror="this.parentElement.style.display='none'">
+    `;
+
+    div.onclick = () => openModal(imgPath);
     mockupsGrid.appendChild(div);
   }
 
-  // CARREGAR ARTES
-  for (let i = 1; i <= 10; i++) {
-    const artePath = `${mockupPath}arte${i}.webp`;
+  // ================= ARTES =================
+  for (let i = 1; i <= 12; i++) {
+    const imgPath = `${basePath}arte${i}.webp`;
+
     const div = document.createElement('div');
     div.className = 'arte-item';
-    div.innerHTML = `<img src="${artePath}" alt="${projeto.nome} - Arte ${i}" onerror="this.parentElement.style.display='none'">`;
-    div.onclick = () => openModal(artePath);
+    div.innerHTML = `
+      <img src="${imgPath}"
+           alt="${projeto.nome} - Arte ${i}"
+           onerror="this.parentElement.style.display='none'">
+    `;
+
+    div.onclick = () => openModal(imgPath);
     artesGrid.appendChild(div);
   }
 }
 
-// FUNÇÕES DO MODAL
-function openModal(imageSrc) {
+// ================= MODAL =================
+function openModal(src) {
   modal.classList.add('active');
-  modalImg.src = imageSrc;
+  modalImg.src = src;
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   modal.classList.remove('active');
+  modalImg.src = "";
   document.body.style.overflow = 'auto';
 }
 
 modalClose.onclick = closeModal;
+
 modal.onclick = (e) => {
   if (e.target === modal) closeModal();
 };
